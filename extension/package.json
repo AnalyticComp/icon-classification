@@ -1,0 +1,29 @@
+{
+  "name": "icon-semantic-classification",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "copy": "cp manifest.json dist && cp -r assets dist && cp src/popup/popup.html dist/popup",
+    "build": "esbuild --sourcemap --bundle --outdir=dist --target=chrome100 src/content-scripts/*.ts src/popup/*.tsx src/background/*.ts && npm run build:css && npm run copy",
+    "build:watch": "esbuild --sourcemap --bundle --outdir=dist --target=chrome100 --watch src/content-scripts/*.ts src/popup/*.tsx src/background/*.ts",
+    "build:css": "tailwindcss -o ./dist/popup/popup.css"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.180",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "esbuild": "^0.14.34",
+    "tailwindcss": "^3.0.23",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "@badrap/bar-of-progress": "^0.2.1",
+    "@tensorflow/tfjs": "^3.19.0",
+    "canvg": "^4.0.0",
+    "clsx": "^1.1.1",
+    "html2canvas": "^1.4.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "tiny-invariant": "^1.2.0"
+  }
+}
